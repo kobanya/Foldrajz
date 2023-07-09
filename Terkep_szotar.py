@@ -8,35 +8,40 @@ orszag_adatok = {
         'terület': '83 879 km²',
         'népesség': '8 900 000',
         'zászló': 'AT.GIF',
-        'térkép': 'at_t.png'
+        'térkép': 'at_t.png',
+        'térkép_méret': (400, 270)
     },
     'Franciaország': {
         'főváros': 'Párizs',
         'terület': '551 695 km²',
         'népesség': '67 410 000',
         'zászló': 'FR.GIF',
-        'térkép': 'fr_t.png'
+        'térkép': 'fr_t.png',
+        'térkép_méret': (400, 270)
     },
     'Egyesült Királyság': {
         'főváros': 'London',
         'terület': '242 500 km²',
         'népesség': '66 040 229',
         'zászló': 'GB.GIF',
-        'térkép': 'gb_t.png'
+        'térkép': 'gb_t.png',
+        'térkép_méret': (400, 270)
     },
     'Magyarország': {
         'főváros': 'Budapest',
         'terület': '93 030 km²',
         'népesség': '9 769 000',
         'zászló': 'HU.GIF',
-        'térkép': 'hu_t.png'
+        'térkép': 'hu_t.png',
+        'térkép_méret': (400, 270)
     },
     'Németország': {
         'főváros': 'Berlin',
         'terület': '357 022 km²',
         'népesség': '83 149 300 fő',
         'zászló': 'N.png',
-        'térkép': 'de_t.png'
+        'térkép': 'de_t.png',
+        'térkép_méret': (250, 270)
     }
 }
 
@@ -44,7 +49,7 @@ orszag_adatok = {
 def mutasd_orszag_adatokat(orszag):
     adatok_cimke.config(text=f'Ország: {orszag}\nFőváros: {orszag_adatok[orszag]["főváros"]}\nTerület: {orszag_adatok[orszag]["terület"]}\nNépesség: {orszag_adatok[orszag]["népesség"]}')
 
-    kep = ImageTk.PhotoImage(Image.open(orszag_adatok[orszag]['térkép']).resize((400, 270)))
+    kep = ImageTk.PhotoImage(Image.open(orszag_adatok[orszag]['térkép']).resize(orszag_adatok[orszag]['térkép_méret']))
     terkep_cimke.config(image=kep)
     terkep_cimke.image = kep  # Fontos, hogy elmentjük a referencia képet, mert a törlődhet
 
