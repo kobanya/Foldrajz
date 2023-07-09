@@ -8,7 +8,7 @@ orszag_adatok = {
         'népesség': '8 900 000',
         'zászló': 'AT.GIF',
         'térkép': 'at_t.png',
-        'térkép_méret': (400, 270)
+        'térkép_méret': (490, 270)
     },
     'Franciaország': {
         'főváros': 'Párizs',
@@ -80,15 +80,15 @@ keret.pack()
 
 # Szövegmező létrehozása
 adatok_cimke = tk.Label(keret, text='', width=30, height=10, anchor=tk.W, padx=10, justify=tk.LEFT)
-adatok_cimke.pack(side=tk.LEFT)
+adatok_cimke.pack(side=tk.LEFT, padx=10, pady=10)
 
 # Térkép címke létrehozása
-terkep_cimke = tk.Label(keret, padx=10)
-terkep_cimke.pack(side=tk.LEFT)
+terkep_cimke = tk.Label(keret)
+terkep_cimke.pack(side=tk.LEFT, padx=10, pady=10)
 
 # Kilépés gomb
 kilepes_gomb = tk.Button(ablak, text='Kilépés', command=ablak.quit)
-kilepes_gomb.pack(side=tk.BOTTOM, fill=tk.X)
+kilepes_gomb.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)
 
 # Ablak megjelenítése
 ablak.mainloop()
