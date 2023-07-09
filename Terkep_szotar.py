@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import ImageTk, Image
 
+
 def mutasd_orszag_adatokat(orszag):
     orszag_adatok = {
         'Ausztria': {
@@ -44,7 +45,8 @@ def mutasd_orszag_adatokat(orszag):
 
     kep = ImageTk.PhotoImage(Image.open(orszag_adatok[orszag]['térkép']).resize((450, 270)))
     terkep_cimke.config(image=kep)
-    terkep_cimke.image = kep  # Fontos, hogy elmentjük a referencia képet
+    terkep_cimke.image = kep  # Fontos, hogy elmentjük a referencia képet, mert a törlődhet
+
 
 # Ablak létrehozása
 ablak = tk.Tk()
