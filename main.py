@@ -7,31 +7,31 @@ def mutasd_orszag_adatokat(orszag):
             'főváros': 'Bécs',
             'terület': '83 879 km²',
             'népesség': '8 900 000',
-            'zászló': '/home/bela/Asztal/AT.GIF'
+            'zászló': 'AT.GIF'
         },
         'Franciaország': {
             'főváros': 'Párizs',
             'terület': '551 695 km²',
             'népesség': '67 410 000',
-            'zászló': '/home/bela/Asztal/FR.GIF'
+            'zászló': 'FR.GIF'
         },
         'Egyesült Királyság': {
             'főváros': 'London',
             'terület': '242 500 km²',
             'népesség': '66 040 229',
-            'zászló': '/home/bela/Asztal/GB.GIF'
+            'zászló': 'GB.GIF'
         },
         'Magyarország': {
             'főváros': 'Budapest',
             'terület': '93 030 km²',
             'népesség': '9 769 000',
-            'zászló': '/home/bela/Asztal/HU.GIF'
+            'zászló': 'HU.GIF'
         },
         'Németország': {
             'főváros': 'Berlin',
             'terület': '357 022 km²',
             'népesség': '83 149 300 fő',
-            'zászló': '/home/bela/Asztal/N.png'
+            'zászló': 'N.png'
         }
     }
 
@@ -40,7 +40,7 @@ def mutasd_orszag_adatokat(orszag):
     if orszag == "Magyarország":
         kep = ImageTk.PhotoImage(Image.open('hu_t.png').resize((450, 270)))
         terkep_cimke.config(image=kep)
-        terkep_cimke.image = kep  # Fontos, hogy elmentjük a referencia képet
+        terkep_cimke.image = kep  # Fontos, hogy elmentjük a referencia képetm memóriában tartjuk, hogy a Python ne kkukázza ki
 
     if orszag == "Ausztria":
         kep = ImageTk.PhotoImage(Image.open('at_t.png').resize((450, 270)))
