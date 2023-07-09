@@ -37,6 +37,11 @@ def mutasd_orszag_adatokat(orszag):
 
     adatok_cimke.config(text=f'Ország: {orszag}\nFőváros: {orszag_adatok[orszag]["főváros"]}\nTerület: {orszag_adatok[orszag]["terület"]}\nNépesség: {orszag_adatok[orszag]["népesség"]}')
 
+    if orszag == "Magyarország":
+        kep = ImageTk.PhotoImage(Image.open('HU_T.jpg').resize((380, 220)))
+        terkep_cimke.config(image=kep)
+        terkep_cimke.image = kep  # Fontos, hogy elmentjük a referencia képet
+
 # Ablak létrehozása
 ablak = tk.Tk()
 ablak.title('Földrajzi adatok')
@@ -61,16 +66,23 @@ gomb_magyarorszag.pack(side=tk.LEFT)
 gomb_usa = tk.Button(gomb_keret, text='Amerikai Egyesült Államok', compound=tk.TOP)
 gomb_usa.pack(side=tk.LEFT)
 
-# Szövegmező létrehozása 10 sor magasságban
-adatok_cimke = tk.Label(ablak, text='', width=50, height=10, anchor=tk.W)
-adatok_cimke.pack(fill=tk.X)
+# Szövegmező és Térkép keret létrehozása
+keret = tk.Frame(ablak)
+keret.pack()
 
+# Szövegmező létrehozása
+adatok_cimke = tk.Label(keret, text='', width=50, height=10, anchor=tk.W, padx=50)
+adatok_cimke.pack(side=tk.LEFT)
+
+# Térkép címke létrehozása
+terkep_cimke = tk.Label(keret)
+terkep_cimke.pack(side=tk.LEFT)
 
 # Zászlók hozzáadása a gombokhoz
-zaszlo_ausztria = ImageTk.PhotoImage(Image.open('/home/bela/Asztal/AT.GIF').resize((180, 120)))
-zaszlo_franciaorszag = ImageTk.PhotoImage(Image.open('/home/bela/Asztal/FR.GIF').resize((180, 120)))
-zaszlo_egyesult_kiralysag = ImageTk.PhotoImage(Image.open('/home/bela/Asztal/GB.GIF').resize((180, 120)))
-zaszlo_magyarorszag = ImageTk.PhotoImage(Image.open('/home/bela/Asztal/HU.GIF').resize((180, 120)))
+zaszlo_ausztria = ImageTk.PhotoImage(Image.open('AT.GIF').resize((180, 120)))
+zaszlo_franciaorszag = ImageTk.PhotoImage(Image.open('FR.GIF').resize((180, 120)))
+zaszlo_egyesult_kiralysag = ImageTk.PhotoImage(Image.open('GB.GIF').resize((180, 120)))
+zaszlo_magyarorszag = ImageTk.PhotoImage(Image.open('HU.GIF').resize((180, 120)))
 zaszlo_usa = ImageTk.PhotoImage(Image.open('USA.GIF').resize((180, 120)))
 
 gomb_ausztria.config(image=zaszlo_ausztria, command=lambda: mutasd_orszag_adatokat('Ausztria'))
@@ -81,7 +93,7 @@ gomb_usa.config(image=zaszlo_usa, command=lambda: mutasd_orszag_adatokat('Amerik
 
 # Kilépés gomb
 kilepes_gomb = tk.Button(ablak, text='Kilépés', command=ablak.quit)
-kilepes_gomb.pack(fill=tk.X)
+kilepes_gomb.pack(side=tk.BOTTOM, fill=tk.X)
 
 # Ablak megjelenítése
 ablak.mainloop()
