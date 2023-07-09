@@ -47,7 +47,8 @@ orszag_adatok = {
 
 
 def mutasd_orszag_adatokat(orszag):
-    adatok_cimke.config(text=f'Ország: {orszag}\nFőváros: {orszag_adatok[orszag]["főváros"]}\nTerület: {orszag_adatok[orszag]["terület"]}\nNépesség: {orszag_adatok[orszag]["népesség"]}')
+    adatok_cimke.config(text=f'Ország: {orszag}\nFőváros: {orszag_adatok[orszag]["főváros"]}\nTerület: '
+                             f'{orszag_adatok[orszag]["terület"]}\nNépesség: {orszag_adatok[orszag]["népesség"]}')
 
     kep = ImageTk.PhotoImage(Image.open(orszag_adatok[orszag]['térkép']).resize(orszag_adatok[orszag]['térkép_méret']))
     terkep_cimke.config(image=kep)
@@ -66,7 +67,8 @@ gomb_keret.pack()
 gombok = []
 for orszag in ['Ausztria', 'Franciaország', 'Egyesült Királyság', 'Magyarország', 'Németország']:
     zaszlo_kep = ImageTk.PhotoImage(Image.open(orszag_adatok[orszag]['zászló']).resize((60, 40)))
-    gomb = tk.Button(gomb_keret, text=orszag, compound=tk.TOP, image=zaszlo_kep, command=lambda o=orszag: mutasd_orszag_adatokat(o))
+    gomb = tk.Button(gomb_keret, text=orszag, compound=tk.TOP, image=zaszlo_kep,
+                     command=lambda o=orszag: mutasd_orszag_adatokat(o))
     gomb.pack(side=tk.LEFT)
     gomb.image = zaszlo_kep  # Fontos, hogy elmentjük a referencia képet
     gombok.append(gomb)
