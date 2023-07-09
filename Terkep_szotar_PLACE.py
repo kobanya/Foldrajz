@@ -82,8 +82,8 @@ terkep_cimke = tk.Label(ablak)
 terkep_cimke.place(x=600, y=100)
 
 # Kilépés gomb
-kilepes_gomb = tk.Button(ablak, text='Kilépés', command=ablak.quit)
-kilepes_gomb.place(x=10, y=350)
+kilepes_gomb = tk.Button(ablak, text='Kilépés', command=ablak.quit,activebackground="#8B0000")
+kilepes_gomb.place(x=970, y=350)
 
 # Ablak megjelenítése
 ablak.mainloop()
